@@ -15,10 +15,25 @@ require_once'Modele/ArticleManager.php';
 	{
 	$db = Modele::getMysqlConnexionWithPDO();
 	$manager = new ArticleManager($db);
- 	$listearticle = $manager->getList(0, 5);
  	$nbArt = $manager->count(); 
     $limite = 5;
     $nbPage = ceil($nbArt/$limite);	
+
+	if(isset($_GET['page'])) 
+	{
+     $pageActuelle=intval($_GET['page']);
+ 
+     if($pageActuelle>$nbPage)
+     {
+          $pageActuelle=$nbPAge;
+     }
+	} 
+		else 
+	{
+     $pageActuelle=1;  
+	}	
+	$debut=($pageActuelle-1)*$limite;
+	$listearticle = $manager->getList($debut,$limite);
 	require 'Vue/vueArticles.php';
 	}
 
@@ -29,7 +44,5 @@ require_once'Modele/ArticleManager.php';
 	$article = $manager->getUnique((int) $_GET['id']);
 	require 'Vue/vueArticle.php';
 	}
-
-
 	}
 	
