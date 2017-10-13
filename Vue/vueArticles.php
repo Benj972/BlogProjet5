@@ -15,9 +15,8 @@
 
 for ($i = 1 ; $i <= $nbPage; $i++)
 {
-   echo '<a href="index.php?action='.$i.'">', $i ,'</a>/';
+   echo '<a href="index.php?page='.$i.'">', $i ,'</a>/';
 }
-
 ?>
 
 <a href="<?= "index.php?action=accueil"?>"> <p>Admin</p></a>
