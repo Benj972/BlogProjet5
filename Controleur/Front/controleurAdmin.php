@@ -6,9 +6,10 @@ require_once 'Modele/ArticleManager.php';
 
 class controleurAdmin{
 
-    private $article;
+   
     
     public function __construct() {
+    
     $this->article = new Article();
     } 
 
@@ -24,7 +25,8 @@ class controleurAdmin{
 
         $db = Modele::getMysqlConnexionWithPDO();
         $manager = new ArticleManager($db);
-        $article = $manager->getUnique((int) $_GET['id']);
+        $article = $manager->getUnique($id);
+        $listearticle = $manager->getList(); 
         require 'Vue/vueAdmin.php';
     }
 
@@ -32,7 +34,7 @@ class controleurAdmin{
 
         $db = Modele::getMysqlConnexionWithPDO();
         $manager = new ArticleManager($db);
-        $manager->delete((int) $_GET['id']);
+        $manager->delete($id);
         $listearticle = $manager->getList();
         $message = 'L\'article a bien été supprimée !';
         require 'Vue/vueAdmin.php';
@@ -42,7 +44,7 @@ class controleurAdmin{
 
         $db = Modele::getMysqlConnexionWithPDO();
         $manager = new ArticleManager($db);
-
+        $listearticle = $manager->getList();
         if (isset($_POST['auteur']))
         {
           $article = new Article(
@@ -62,7 +64,7 @@ class controleurAdmin{
         if ($article->isValid())
         {
           $manager->save($article);
-          $message = $article->isNew() ? 'L\'article a bien été ajoutée !' : 'L\' a bien été modifiée !';
+          $message = $article->isNew() ? 'L\'article a bien été ajoutée !' : 'L\' article a bien été modifiée !';
         }
 
         else
@@ -71,5 +73,9 @@ class controleurAdmin{
         }
 
       }
+
+      require 'Vue/vueAdmin.php';
+
+
 }
 }
