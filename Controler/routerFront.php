@@ -1,16 +1,16 @@
 <?php
-require_once 'controleurArticles.php';
-require_once 'controleurAdmin.php';
+require_once 'controlerArticles.php';
+require_once 'controlerAdmin.php';
 
 
-class routeurFront {
+class routerFront {
 
   private $ctrlArticles;
   private $ctrlAdmin;
 
   public function __construct() {
-    $this->ctrlArticles = new controleurArticles();
-    $this->ctrlAdmin = new controleurAdmin();
+    $this->ctrlArticles = new controlerArticles();
+    $this->ctrlAdmin = new controlerAdmin();
    
   }
 
