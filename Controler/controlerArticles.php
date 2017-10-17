@@ -3,7 +3,7 @@ require_once'Modele/Article.php';
 require_once'Modele/ArticleManager.php';
 
 
-	class controleurArticles{
+	class controlerArticles{
 		
 	private $article;
 
@@ -16,21 +16,21 @@ require_once'Modele/ArticleManager.php';
 	$db = Modele::getMysqlConnexionWithPDO();
 	$manager = new ArticleManager($db);
  	$nbArt = $manager->count(); 
-    $limite = 5;
-    $nbPage = ceil($nbArt/$limite);	
+        $limite = 5;
+        $nbPage = ceil($nbArt/$limite);	
 
 	if(isset($_GET['page'])) 
 	{
-     $pageActuelle=intval($_GET['page']);
+        $pageActuelle=intval($_GET['page']);
  
-     if($pageActuelle>$nbPage)
-     {
+        if($pageActuelle>$nbPage)
+        {
           $pageActuelle=$nbPAge;
-     }
+        }
 	} 
-		else 
+	else 
 	{
-     $pageActuelle=1;  
+        $pageActuelle=1;  
 	}	
 	$debut=($pageActuelle-1)*$limite;
 	$listearticle = $manager->getList($debut,$limite);
