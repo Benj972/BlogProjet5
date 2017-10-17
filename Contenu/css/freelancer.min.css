@@ -6,11 +6,11 @@
  
 
 .admin a{
-	color: white;
+	color: #18BC9C;
 }
 
 .admin input{
-	color: black;
+	color: #18BC9C;
 }
 
 .admin textarea{
@@ -19,12 +19,15 @@
 
 .admin table, td {
         border: 1px solid black;
+
       }
       
 .admin table {
         margin:auto;
         text-align: center;
         border-collapse: collapse;
+        width: 100%; /* à adapter selon vos contraintes */
+  table-layout: fixed;
       }
       
 .admin td {
@@ -33,4 +36,53 @@
 
 .intro-text a{
 	color: black;
+}
+
+.article p{
+ /*word-wrap: break-word;*/
+overflow-wrap: break-word;
+}
+
+
+@media (min-width: 768px)
+{}
+
+
+@media (max-width: 767px)
+{
+.admin table {
+        
+        width: 100%; /* à adapter selon vos contraintes */
+        table-layout: fixed;
+      }
+
+
+.admin table, td 
+{
+  overflow-wrap: break-word;
+}
+
+.admin table, th
+{
+  width: 100%;
+  font-size: 0.75em;
+}
+.admin p
+
+{
+  font-size: 1em;
+}
+
+
+.admin textarea
+{
+  width: 80%;
+}
+.article p
+
+{
+
+  font-size: 1em;
+}
+
 }
