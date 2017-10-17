@@ -75,7 +75,41 @@ class controleurAdmin{
       }
 
       require 'Vue/vueAdmin.php';
-
-
 }
+
+    public function mail(){
+    if (isset($_POST["name"])){
+
+    if(empty($_POST['name'])        ||
+    empty($_POST['email'])       ||
+    empty($_POST['phone'])       ||
+    empty($_POST['message']) ||
+    !filter_var($_POST['email'],FILTER_VALIDATE_EMAIL))
+    {
+      echo "Message non envoyé. Veuillez remplir le formulaire";
+      return false;
+    }
+    
+    $name = strip_tags(htmlspecialchars($_POST['name']));
+    $email = strip_tags(htmlspecialchars($_POST['email']));
+    $phone = strip_tags(htmlspecialchars($_POST['phone']));
+    $message = strip_tags(htmlspecialchars($_POST['message']));
+    
+    // Create the email and send the message
+    $to = 'ben.gallot@hotmail.fr'; 
+    $email_subject = "Website Contact Form:  $name";
+    $email_body = "You have received a new message from your website contact form.\n\n"."Here are the details:\n\nName: $name\n\nEmail: $email\n\nPhone: $phone\n\nMessage:\n$message";
+    $headers = "From: noreply@yourdomain.com\n"; 
+    $headers .= "Reply-To: $email"; 
+    mail($to,$email_subject,$email_body,$headers);
+          
+    {
+      echo $envoi ='<a href="index.php?action=mail"> Message bien envoyé. Retournez sur le site</a>';
+      return true;
+    }
+    
+  }
+    require 'Vue/vueContactForm.php';
+}
+   
 }
