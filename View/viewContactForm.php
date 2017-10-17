@@ -49,4 +49,4 @@ if (isset($_POST["name"]))
 
 </div>
 <?php $contenu = ob_get_clean(); ?>
-<?php require 'gabarit.php'; ?>
+<?php require 'template.php'; ?>
