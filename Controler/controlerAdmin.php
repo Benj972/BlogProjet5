@@ -4,7 +4,7 @@
 require_once 'Modele/Article.php';
 require_once 'Modele/ArticleManager.php';
 
-class controleurAdmin{
+class controlerAdmin{
 
    
     
