@@ -3,7 +3,7 @@ require_once'Modele/Article.php';
 require_once'Modele/ArticleManager.php';
 
 
-	class controlerArticles{
+	class ControlerArticles{
 		
 	private $article;
 
@@ -34,7 +34,7 @@ require_once'Modele/ArticleManager.php';
 	}	
 	$debut=($pageActuelle-1)*$limite;
 	$listearticle = $manager->getList($debut,$limite);
-	require 'Vue/vueArticles.php';
+	require 'View/viewArticles.php';
 	}
 
 	public function article($id)
@@ -42,7 +42,7 @@ require_once'Modele/ArticleManager.php';
 	$db = Modele::getMysqlConnexionWithPDO();
 	$manager = new ArticleManager($db);
 	$article = $manager->getUnique((int) $_GET['id']);
-	require 'Vue/vueArticle.php';
+	require 'View/viewArticle.php';
 	}
 	}
 	
