@@ -11,6 +11,7 @@ class routeurFront {
   public function __construct() {
     $this->ctrlArticles = new controleurArticles();
     $this->ctrlAdmin = new controleurAdmin();
+   
   }
 
   // Traite une requête entrante
@@ -30,6 +31,10 @@ class routeurFront {
           }
         }
 
+         if ($_GET['action'] == 'mail')
+          	{
+              $this->ctrlAdmin->mail();
+            }
 
         if ($_GET['action'] == 'accueil')
           {
@@ -58,14 +63,21 @@ class routeurFront {
           {
               $this->ctrlAdmin->ajouter();
           }
+
+          /*else if ($_GET['action']) == 'email')
+          {
+              $this->ctrlAdmin->email();
+          }*/
   }
-    
         else 
           {  // aucune action définie : affichage de l'accueil
               $this->ctrlArticles->articles();
           }
+
+          
 }
 }
+
 
 
   
