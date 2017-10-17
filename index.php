@@ -2,9 +2,9 @@
 
 <?php
 
-require 'Controler/routerFront.php';
+require 'Controler/RouterFront.php';
 
-$routerFront = new routerFront();
-$routerFront->routerRequete();
+$RouterFront = new RouterFront();
+$RouterFront->routerRequete();
 
  
