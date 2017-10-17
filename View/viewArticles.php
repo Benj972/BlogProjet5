@@ -23,4 +23,4 @@ for ($i = 1 ; $i <= $nbPage; $i++)
 
 </div>
 <?php $contenu = ob_get_clean(); ?>
-<?php require 'gabarit.php'; ?>
+<?php require 'template.php'; ?>
