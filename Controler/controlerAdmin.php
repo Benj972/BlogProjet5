@@ -18,7 +18,7 @@ class controlerAdmin{
     $db = Modele::getMysqlConnexionWithPDO();
     $manager = new ArticleManager($db);
     $listearticle = $manager->getList();    
-    require 'Vue/vueAdmin.php';
+    require 'View/viewAdmin.php';
     }
 
     public function modifier($id){
@@ -27,7 +27,7 @@ class controlerAdmin{
         $manager = new ArticleManager($db);
         $article = $manager->getUnique($id);
         $listearticle = $manager->getList(); 
-        require 'Vue/vueAdmin.php';
+        require 'View/viewAdmin.php';
     }
 
     public function supprimer($id){
@@ -37,7 +37,7 @@ class controlerAdmin{
         $manager->delete($id);
         $listearticle = $manager->getList();
         $message = 'L\'article a bien été supprimée !';
-        require 'Vue/vueAdmin.php';
+        require 'View/viewAdmin.php';
     }
 
     public function ajouter(){
@@ -74,7 +74,7 @@ class controlerAdmin{
 
       }
 
-      require 'Vue/vueAdmin.php';
+      require 'View/viewAdmin.php';
 }
 
     public function mail(){
@@ -109,7 +109,7 @@ class controlerAdmin{
     }
     
   }
-    require 'Vue/vueContactForm.php';
+    require 'View/viewContactForm.php';
 }
    
 }
