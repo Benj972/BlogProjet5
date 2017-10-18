@@ -3,7 +3,7 @@
 
 <div class="admin">
 
-  <form method="post" action="index.php?action=ajouter" >
+  <form method="post" action="index.php?action=create" >
       <p style="text-align: center">
  
 <?php
@@ -52,7 +52,7 @@ else
 <?
   foreach ($listearticle as $article)
   {
-  echo '<tr><td>', $article->auteur(), '</td><td>', $article->titre(), '</td><td>', $article->dateAjout()->format('d/m/Y à H\hi'), '</td><td>', ($article->dateAjout() == $article->dateModif() ? '-' : $article->dateModif()->format('d/m/Y à H\hi')), '</td><td><a href="index.php?action=modifier&id=', $article->id(), '">Modifier</a> | <a href="index.php?action=supprimer&id=', $article->id(), '">Supprimer</a></td></tr>', "\n";
+  echo '<tr><td>', $article->auteur(), '</td><td>', $article->titre(), '</td><td>', $article->dateAjout()->format('d/m/Y à H\hi'), '</td><td>', ($article->dateAjout() == $article->dateModif() ? '-' : $article->dateModif()->format('d/m/Y à H\hi')), '</td><td><a href="index.php?action=edit&id=', $article->id(), '">Modifier</a> | <a href="index.php?action=remove&id=', $article->id(), '">Supprimer</a></td></tr>', "\n";
   }  
 ?>
 
