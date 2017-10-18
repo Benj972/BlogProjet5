@@ -53,7 +53,7 @@
                         <a href="index.php">Articles</a>
                     </li>
                     <li class="page-scroll">
-                       <a href="<?="index.php?action=accueil"?>">Administration</a>
+                       <a href="<?= "index.php?action=administer"?>">Administration</a>
                     </li>
                     <li class="page-scroll">
                         <a href="<?= "index.php?action=mail"?>">Contact</a>
