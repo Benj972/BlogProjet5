@@ -13,15 +13,15 @@ class ControlerAdmin{
     $this->article = new Article();
     } 
 
-    public function accueil()
+    public function administer()
     {
-    $db = Modele::getMysqlConnexionWithPDO();
-    $manager = new ArticleManager($db);
-    $listearticle = $manager->getList();    
-    require 'View/viewAdmin.php';
+        $db = Modele::getMysqlConnexionWithPDO();
+        $manager = new ArticleManager($db);
+        $listearticle = $manager->getList();    
+        require 'View/viewAdmin.php';
     }
 
-    public function modifier($id){
+    public function edit($id){
 
         $db = Modele::getMysqlConnexionWithPDO();
         $manager = new ArticleManager($db);
@@ -30,7 +30,7 @@ class ControlerAdmin{
         require 'View/viewAdmin.php';
     }
 
-    public function supprimer($id){
+    public function remove($id){
 
         $db = Modele::getMysqlConnexionWithPDO();
         $manager = new ArticleManager($db);
@@ -40,7 +40,7 @@ class ControlerAdmin{
         require 'View/viewAdmin.php';
     }
 
-    public function ajouter(){
+    public function create(){
 
         $db = Modele::getMysqlConnexionWithPDO();
         $manager = new ArticleManager($db);
