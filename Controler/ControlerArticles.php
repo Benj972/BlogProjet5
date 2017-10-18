@@ -5,7 +5,7 @@ require_once'Modele/ArticleManager.php';
 
 	class ControlerArticles{
 		
-	private $article;
+	
 
     public function __construct() {
     $this->article = new Article();
@@ -16,8 +16,8 @@ require_once'Modele/ArticleManager.php';
 	$db = Modele::getMysqlConnexionWithPDO();
 	$manager = new ArticleManager($db);
  	$nbArt = $manager->count(); 
-        $limite = 5;
-        $nbPage = ceil($nbArt/$limite);	
+    $limite = 5;
+    $nbPage = ceil($nbArt/$limite);	
 
 	if(isset($_GET['page'])) 
 	{
