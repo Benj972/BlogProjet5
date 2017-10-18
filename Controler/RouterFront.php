@@ -36,38 +36,35 @@ class RouterFront {
               $this->ctrlAdmin->mail();
             }
 
-        if ($_GET['action'] == 'accueil')
+        if ($_GET['action'] == 'administer')
           {
-            $this->ctrlAdmin->accueil();
+            $this->ctrlAdmin->administer();
           }
 
-        if ($_GET['action'] == 'supprimer') {
+        if ($_GET['action'] == 'remove') {
           if (isset($_GET['id'])) {
             $id = intval($_GET['id']);
             if ($id != 0) {
-              $this->ctrlAdmin->supprimer($id);
+              $this->ctrlAdmin->remove($id);
             }
           }
         }
       
-        else if ($_GET['action'] == 'modifier') {
+        else if ($_GET['action'] == 'edit') {
           if (isset($_GET['id'])) {
             $id = intval($_GET['id']);
             if ($id != 0) {
-              $this->ctrlAdmin->modifier($id);
+              $this->ctrlAdmin->edit($id);
             }
           }
         }
       
-         else if ($_GET['action'] == 'ajouter')   
+         else if ($_GET['action'] == 'create')   
           {
-              $this->ctrlAdmin->ajouter();
+              $this->ctrlAdmin->create();
           }
 
-          /*else if ($_GET['action']) == 'email')
-          {
-              $this->ctrlAdmin->email();
-          }*/
+        
   }
         else 
           {  // aucune action définie : affichage de l'accueil
