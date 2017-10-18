@@ -19,7 +19,6 @@ for ($i = 1 ; $i <= $nbPage; $i++)
 }
 ?>
 
-<a href="<?= "index.php?action=accueil"?>"> <p>Admin</p></a>
 
 </div>
 <?php $contenu = ob_get_clean(); ?>
