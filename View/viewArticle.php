@@ -11,6 +11,10 @@
 
 
 ?>
+
+
+<a href="index.php"> <p><em>Retour à la liste d'articles</em></p></a>
+
 </div>
 
 <?php $contenu = ob_get_clean(); ?>
